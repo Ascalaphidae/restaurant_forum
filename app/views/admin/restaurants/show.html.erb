@@ -2,7 +2,10 @@
 
 <table>
   <tr>
-    <td colspan="3"><%= @restaurant.description%></td>
+    <td colspan="3">
+      <p><%= image_tag @restaurant.image, width: '600px' %></p>
+      <%= @restaurant.description%>  
+    </td>
   </tr>
   <tr>
     <th>營業時間:</th>
