@@ -1,0 +1,19 @@
+<h1><%= @restaurant.name %></h1>
+
+<table>
+  <tr>
+    <td colspan="3"><%= @restaurant.description%></td>
+  </tr>
+  <tr>
+    <th>營業時間:</th>
+    <th>Tel:</th>
+    <th>地址:</th>
+  </tr>
+  <tr>
+    <td><%= @restaurant.opening_hours %></td>
+    <td><%= @restaurant.tel %></td>
+    <td><%= @restaurant.address %></td>
+  </tr>
+  
+</table>
+<%= link_to 'Back to index', admin_restaurants_path %>
