@@ -9,17 +9,27 @@
   </head>
 
   <body>
+    
+    <% if current_user %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" aria-expanded="false">
+          </button>
+          <a class="navbar-brand" href="#">Restaurant Finder</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to('修改密碼', edit_user_registration_path) %></li>
+          <li><%= link_to('登出', destroy_user_session_path, method: :delete) %></li>   
+        </ul>
+      </div>  
+      <% else %>
+        <%= link_to('註冊', new_user_registration_path) %> |
+        <%= link_to('登入', new_user_session_path) %>
+      <% end %>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% if current_user %>
-      Hi, <%= current_user.email %>
-      <%= link_to('登出', destroy_user_session_path, method: :delete) %> |
-      <%= link_to('修改密碼', edit_user_registration_path) %>
-    <% else %>
-      <%= link_to('註冊', new_user_registration_path) %> |
-      <%= link_to('登入', new_user_session_path) %>
-    <% end %>
-
     <%= yield %>
   </body>
 </html>
